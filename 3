@@ -2,3 +2,7 @@ class Vehicle { }
 class Car : Vehicle { }
 
 Action<Vehicle> repairVehicle = v => Console.WriteLine($"Repairing {v.GetType().Name}");
+Action<Car> repairCar = repairVehicle;
+repairCar(new Car());
+
+//Работает, потому что функция, которая раьотает с любым Vehicle, также работает только для Car.
