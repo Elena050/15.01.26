@@ -1,0 +1,50 @@
+using System;
+interface IProducer<out T>
+{
+   T Produce();
+}
+
+class Fruit
+{
+   public string Name => "Просто фрукт";
+}
+
+class Apple : Fruit
+{
+   public string Name => "Яблоко";
+}
+ class AppleProducer : IProducer<apple>
+ {
+    public Apple Produce()
+    {
+      Console.WriteLine("Производим яблоко...");
+      return new Apple();
+    }
+ }
+
+ class FruitProducer : IProducer<Fruit>
+ {
+    public Fruit Produce()
+    {
+       Console.WriteLine("Производим какой-то фрукт...");
+       return new Fruit();
+    }
+ }
+
+ class Program
+ {
+   static void Main()
+   {
+     IProducer<Fruit> fruitProducer = new AppleProducer();
+     Fruit fruit = fruitProducer.Produce();
+     console.WriteLine($"получили:{fruit.Name}");
+     if (fruit is Apple apple)
+     {
+        console.WriteLine($"Это действительно яблоко:{apple.Name}");
+     }
+
+     IProducer<Fruit> realFruitProducer = new FruitProducer();
+     Fruit someFruit = realFruitProducer.Produce();
+     Console.WriteLine($"Другой фрукт:{someFruit.Name}");
+   }
+ }
