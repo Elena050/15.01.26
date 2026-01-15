@@ -1,7 +1,14 @@
 interface IAnimal { void Speak(); }
-class Dog : IAnimal { 
-public void Speak() => Console.WriteLine("Woof");
+class Dog : IAnimal { public void Speak() => Console.WriteLine("Woof"); }
+class Program
+{
+  static void Main()
+  {
+    IEimerable<IAnimal> animals = new LIst<Dog> { new Dog(), new Dog() };
+    foreach (var animal in anumals)
+    {
+      animal.Speak();
+    }
+  }
 }
-class Cat : IAnimal { 
-public void Speak() => Console.WriteLine("Meow"); 
-}
+
