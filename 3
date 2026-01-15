@@ -1,0 +1,4 @@
+class Vehicle { }
+class Car : Vehicle { }
+
+Action<Vehicle> repairVehicle = v => Console.WriteLine($"Repairing {v.GetType().Name}");
